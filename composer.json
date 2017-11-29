@@ -1,5 +1,5 @@
 {
-    "name": "league/csv",
+    "name": "sw897/csv",
     "type": "library",
     "description" : "Csv data manipulation made easy in PHP",
     "keywords": ["csv", "import", "export", "read", "write", "filter"],
