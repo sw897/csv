@@ -2,17 +2,17 @@
 
 namespace LeagueTest\Csv;
 
-use League\Csv\CannotInsertRecord;
-use League\Csv\ColumnConsistency;
-use League\Csv\Exception;
-use League\Csv\Writer;
+use Csv\CannotInsertRecord;
+use Csv\ColumnConsistency;
+use Csv\Exception;
+use Csv\Writer;
 use PHPUnit\Framework\TestCase;
 use SplFileObject;
 use SplTempFileObject;
 
 /**
  * @group writer
- * @coversDefaultClass League\Csv\ColumnConsistency
+ * @coversDefaultClass Csv\ColumnConsistency
  */
 class ColumnConsistencyTest extends TestCase
 {
@@ -35,7 +35,7 @@ class ColumnConsistencyTest extends TestCase
      * @covers ::__construct
      * @covers ::getColumnCount
      * @covers ::__invoke
-     * @covers League\Csv\CannotInsertRecord
+     * @covers Csv\CannotInsertRecord
      */
     public function testAutoDetect()
     {
@@ -56,7 +56,7 @@ class ColumnConsistencyTest extends TestCase
     /**
      * @covers ::__construct
      * @covers ::__invoke
-     * @covers League\Csv\CannotInsertRecord
+     * @covers Csv\CannotInsertRecord
      */
     public function testColumnsCount()
     {
@@ -68,7 +68,7 @@ class ColumnConsistencyTest extends TestCase
 
     /**
      * @covers ::__construct
-     * @covers League\Csv\Exception
+     * @covers Csv\Exception
      */
     public function testColumsCountTriggersException()
     {

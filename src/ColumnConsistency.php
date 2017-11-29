@@ -12,7 +12,7 @@
 */
 declare(strict_types=1);
 
-namespace League\Csv;
+namespace Csv;
 
 /**
  * A class to validate column consistency when inserting records into a CSV document

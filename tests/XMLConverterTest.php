@@ -4,15 +4,15 @@ namespace LeagueTest\Csv;
 
 use DOMDocument;
 use DOMException;
-use League\Csv\Reader;
-use League\Csv\Statement;
-use League\Csv\XMLConverter;
+use Csv\Reader;
+use Csv\Statement;
+use Csv\XMLConverter;
 use PHPUnit\Framework\TestCase;
 use TypeError;
 
 /**
  * @group converter
- * @coversDefaultClass League\Csv\XMLConverter
+ * @coversDefaultClass Csv\XMLConverter
  */
 class XMLConverterTest extends TestCase
 {

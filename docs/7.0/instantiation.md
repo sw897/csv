@@ -7,10 +7,10 @@ title: Instantiation using named constructors
 
 The library is composed of two main classes:
 
-* `League\Csv\Reader` to read data from a CSV
-* `League\Csv\Writer` to write new data into a CSV
+* `Csv\Reader` to read data from a CSV
+* `Csv\Writer` to write new data into a CSV
 
-Both classes extend the `League\Csv\AbstractCsv` class and as such share methods for instantiation.
+Both classes extend the `Csv\AbstractCsv` class and as such share methods for instantiation.
 
 ## Mac OS Server
 
@@ -47,8 +47,8 @@ The resulting string and `$open_mode` parameters are used to lazy load internall
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\Writer;
 
 $reader = Reader::createFromPath('/path/to/your/csv/file.csv', 'r');
 //the $reader object will use the 'r+' open mode as no `open_mode` parameter was supplied.
@@ -63,8 +63,8 @@ If you have a `SplFileObject` and you want to directly work with it you should u
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\Writer;
 
 $reader = Reader::createFromFileObject(new SplFileObject('/path/to/your/csv/file.csv'));
 $writer = Writer::createFromFileObject(new SplTempFileObject());
@@ -87,8 +87,8 @@ If no newline sequence is specified, the newline sequence used will be `\n` to m
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\Writer;
 
 $reader = Reader::createFromString('john,doe,john.doe@example.com', "\n");
 $writer = Writer::createFromString('john,doe,john.doe@example.com', "\r\n");
@@ -98,10 +98,10 @@ $writer = Writer::createFromString('john,doe,john.doe@example.com', "\r\n");
 
 ## Switching from one class to the other
 
-At any given time you can switch or create a new `League\Csv\Writer` or a new `League\Csv\Reader` from the current object. to do so you can use the following methods.
+At any given time you can switch or create a new `Csv\Writer` or a new `Csv\Reader` from the current object. to do so you can use the following methods.
 
-* the `newReader` to create a new `League\Csv\Reader` object;
-* the `newWriter` to create a new `League\Csv\Writer` object;
+* the `newReader` to create a new `Csv\Reader` object;
+* the `newWriter` to create a new `Csv\Writer` object;
 
 Both methods accept an optional `$open_mode` parameter.
 

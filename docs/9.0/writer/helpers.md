@@ -18,7 +18,7 @@ class ColumnConsistency
 }
 ~~~
 
-The `League\Csv\ColumnConsistency` class validates the inserted record column count consistency.
+The `Csv\ColumnConsistency` class validates the inserted record column count consistency.
 
 This class constructor accepts a single argument `$column_count` which sets the column count value and validate each record length against the given value. If the value differs an `CannotInsertRecord` will be thrown.
 
@@ -28,8 +28,8 @@ At any given time you can retrieve the column count value using the `ColumnConsi
 ~~~php
 <?php
 
-use League\Csv\Writer;
-use League\Csv\ColumnConsistency;
+use Csv\Writer;
+use Csv\ColumnConsistency;
 
 
 $validator = new ColumnConsistency();
@@ -45,13 +45,13 @@ $writer->insertOne(["foo", "bar"]); //will trigger a CannotInsertRecord exceptio
 
 ## Charset formatter
 
-[League\Csv\CharsetConverter](/9.0/converter/charset/) will help you encode your records depending on your settings.
+[Csv\CharsetConverter](/9.0/converter/charset/) will help you encode your records depending on your settings.
 
 ~~~php
 <?php
 
-use League\Csv\CharsetConverter;
-use League\Csv\Writer;
+use Csv\CharsetConverter;
+use Csv\Writer;
 
 $writer = Writer::createFromPath('/path/to/your/csv/file.csv');
 $formatter = (new CharsetConverter())
@@ -68,8 +68,8 @@ If your `Writer` object supports PHP stream filters then it's recommended to use
 ~~~php
 <?php
 
-use League\Csv\CharsetConverter;
-use League\Csv\Writer;
+use Csv\CharsetConverter;
+use Csv\Writer;
 
 $writer = Writer::createFromPath('/path/to/your/csv/file.csv');
 CharsetConverter::addTo($writer, 'utf-8', 'iso-8859-15');

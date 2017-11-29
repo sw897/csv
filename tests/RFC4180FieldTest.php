@@ -3,15 +3,15 @@
 namespace LeagueTest\Csv;
 
 use InvalidArgumentException;
-use League\Csv\Reader;
-use League\Csv\RFC4180Field;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\RFC4180Field;
+use Csv\Writer;
 use PHPUnit\Framework\TestCase;
 use TypeError;
 
 /**
  * @group filter
- * @coversDefaultClass League\Csv\RFC4180Field
+ * @coversDefaultClass Csv\RFC4180Field
  */
 class RFC4180FieldTest extends TestCase
 {

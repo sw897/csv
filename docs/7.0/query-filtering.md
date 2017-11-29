@@ -18,7 +18,7 @@ You can restrict [extract methods](/7.0/reading/) and [conversion methods](/7.0/
 
 <p class="message-notice">Starting with <code>version 7.0</code> The query options can be use to modify the output from the <code>jsonSerialize</code>, <code>toXML</code> and <code>toHTML</code> methods.</p>
 
-<p class="message-notice">Starting with <code>version 7.1</code> The query options are also available for conversion methods on the <code>League\Csv\Writer</code> class.</p>
+<p class="message-notice">Starting with <code>version 7.1</code> The query options are also available for conversion methods on the <code>Csv\Writer</code> class.</p>
 
 ## Modifying content methods
 

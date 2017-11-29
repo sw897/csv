@@ -10,7 +10,7 @@ To ease performing operations on the CSV as it is being read from or written to,
 
 ## Stream Filter API
 
-While in PHP the stream filter mode is attached to its associated filter, in `League\Csv` the filter mode is attached to the CSV object. This means that when you change the filter mode, you also clear all previously attached stream filters.
+While in PHP the stream filter mode is attached to its associated filter, in `Csv` the filter mode is attached to the CSV object. This means that when you change the filter mode, you also clear all previously attached stream filters.
 
 To be able to use the stream filtering mechanism you need to:
 
@@ -33,8 +33,8 @@ public AbstractCsv::isActiveStreamFilter(void): bool
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\Writer;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $reader->isActiveStreamFilter(); //return true
@@ -70,7 +70,7 @@ By default:
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 if ($reader->isActiveStreamFilter()) {
@@ -111,12 +111,12 @@ Since the stream filters are attached to the CSV object:
 
 The filters are automatically applied when the stream filter mode matches the method you are using.
 
-See below an example using `League\Csv\Reader` to illustrate:
+See below an example using `Csv\Reader` to illustrate:
 
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 stream_filter_register('convert.utf8decode', 'MyLib\Transcode');
 // 'MyLib\Transcode' is a class that extends PHP's php_user_filter class
@@ -139,7 +139,7 @@ foreach ($reader as $row) {
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/chinese.csv', 'r');
 $reader->appendStreamFilter('convert.iconv.UTF-8/ASCII//TRANSLIT');
@@ -155,7 +155,7 @@ var_dump($reader->fetchAll());
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $writer = Writer::createFromPath('/path/to/my/file.csv');
 $writer->setDelimiter(',');

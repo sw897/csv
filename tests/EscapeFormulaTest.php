@@ -3,15 +3,15 @@
 namespace LeagueTest\Csv;
 
 use InvalidArgumentException;
-use League\Csv\EscapeFormula;
-use League\Csv\Writer;
+use Csv\EscapeFormula;
+use Csv\Writer;
 use PHPUnit\Framework\TestCase;
 use SplTempFileObject;
 use TypeError;
 
 /**
  * @group filter
- * @coversDefaultClass League\Csv\EscapeFormula
+ * @coversDefaultClass Csv\EscapeFormula
  */
 class EscapeFormulaTest extends TestCase
 {

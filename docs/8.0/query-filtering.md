@@ -116,7 +116,7 @@ Here's an example on how to use the query features of the `Reader` class to rest
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 function filterByEmail($row)
 {
@@ -155,7 +155,7 @@ The query options can also modify the output from the conversion methods as show
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 function filterByEmail($row)
 {

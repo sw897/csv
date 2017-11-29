@@ -3,9 +3,9 @@
 namespace LeagueTest\Csv;
 
 use BadMethodCallException;
-use League\Csv\Exception;
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Exception;
+use Csv\Reader;
+use Csv\Statement;
 use PHPUnit\Framework\TestCase;
 use SplFileObject;
 use SplTempFileObject;
@@ -13,7 +13,7 @@ use TypeError;
 
 /**
  * @group reader
- * @coversDefaultClass League\Csv\Reader
+ * @coversDefaultClass Csv\Reader
  */
 class ReaderTest extends TestCase
 {
@@ -159,7 +159,7 @@ class ReaderTest extends TestCase
      * @covers ::computeHeader
      * @covers ::getRecords
      * @covers ::setHeader
-     * @covers League\Csv\Exception
+     * @covers Csv\Exception
      */
     public function testHeaderThrowsExceptionOnError()
     {
@@ -178,7 +178,7 @@ class ReaderTest extends TestCase
      * @covers ::stripBOM
      * @covers ::removeBOM
      * @covers ::combineHeader
-     * @covers League\Csv\Stream
+     * @covers Csv\Stream
      * @dataProvider validBOMSequences
      * @param array  $record
      * @param string $expected_bom
@@ -223,7 +223,7 @@ class ReaderTest extends TestCase
      * @covers ::stripBOM
      * @covers ::removeBOM
      * @covers ::combineHeader
-     * @covers League\Csv\Stream
+     * @covers Csv\Stream
      */
     public function testStripBOMWithEnclosure()
     {
@@ -241,7 +241,7 @@ class ReaderTest extends TestCase
      * @covers ::stripBOM
      * @covers ::removeBOM
      * @covers ::combineHeader
-     * @covers League\Csv\Stream
+     * @covers Csv\Stream
      */
     public function testStripNoBOM()
     {
@@ -299,7 +299,7 @@ class ReaderTest extends TestCase
 
     /**
      * @covers ::setHeaderOffset
-     * @covers \League\Csv\is_nullable_int
+     * @covers \Csv\is_nullable_int
      */
     public function testSetHeaderThrowsExceptionOnWrongInput()
     {

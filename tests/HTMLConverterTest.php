@@ -3,14 +3,14 @@
 namespace LeagueTest\Csv;
 
 use DOMException;
-use League\Csv\HTMLConverter;
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\HTMLConverter;
+use Csv\Reader;
+use Csv\Statement;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @group converter
- * @coversDefaultClass League\Csv\HTMLConverter
+ * @coversDefaultClass Csv\HTMLConverter
  */
 class HTMLConverterTest extends TestCase
 {

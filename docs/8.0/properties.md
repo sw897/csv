@@ -44,7 +44,7 @@ public AbstractCsv::getDelimiter(void): string
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $csv = Reader::createFromPath('/path/to/file.csv', 'r');
 $csv->setDelimiter(';');
@@ -71,7 +71,7 @@ public AbstractCsv::getEnclosure(void): string
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $csv = Writer::createFromPath('/path/to/file.csv');
 $csv->setEnclosure('|');
@@ -102,7 +102,7 @@ public AbstractCsv::getEscape(void): string
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $csv = Reader::createFromPath('/path/to/file.csv', 'r');
 $csv->setEscape('\\');
@@ -134,7 +134,7 @@ The method takes two arguments:
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/your/csv/file.csv', 'r');
 $reader->setEnclosure('"');
@@ -178,7 +178,7 @@ public AbstractCsv::getNewline(void): string
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $csv = Writer::createFromPath('/path/to/file.csv');
 $csv->setNewline("\r\n");
@@ -208,7 +208,7 @@ Detect the current BOM character is done using the `getInputBOM` method. This me
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $csv = Writer::createFromPath('/path/to/file.csv');
 $bom = $csv->getInputBOM();
@@ -231,7 +231,7 @@ public AbstractCsv::getOutputBOM(void): string
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $csv = Reader::createFromPath('/path/to/file.csv', 'r');
 $csv->setOutputBOM(Reader::BOM_UTF8);
@@ -281,7 +281,7 @@ public AbstractCsv::getEncodingFrom(void): string
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $csv = Reader::createFromPath('/path/to/file.csv', 'r');
 $csv->setInputEncoding('iso-8859-15');
@@ -297,7 +297,7 @@ By default `getInputEncoding` returns `UTF-8` if `setInputEncoding` was not used
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromFileObject(new SplFileObject('/path/to/bengali.csv'));
 //we are using the setInputEncoding method to transcode the CSV into UTF-8

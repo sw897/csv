@@ -5,7 +5,7 @@ title: Extracting data from a CSV
 
 # Extracting data
 
-To extract data from a CSV document use `League\Csv\Reader` methods.
+To extract data from a CSV document use `Csv\Reader` methods.
 
 <p class="message-warning">
 By default, the mode for a <code>Reader::createFromPath</code> is

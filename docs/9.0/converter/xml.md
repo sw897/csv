@@ -23,7 +23,7 @@ class XMLConverter
 
 Prior to converting your records collection into XML, you may wish to configure the element and its associated attribute names. To do so `XMLConverter` provides methods to setup theses settings.
 
-<p class="message-warning">Because we are building a <code>DOMDocument</code> object, the <code>XMLConverter</code> object throws <code>DOMException</code> insted of <code>League\Csv\Exception</code>.</p>
+<p class="message-warning">Because we are building a <code>DOMDocument</code> object, the <code>XMLConverter</code> object throws <code>DOMException</code> insted of <code>Csv\Exception</code>.</p>
 
 ### XMLConverter::rootElement
 
@@ -76,9 +76,9 @@ The `XMLConverter::convert` accepts an `iterable` which represents the records c
 ~~~php
 <?php
 
-use League\Csv\XMLConverter;
-use League\Csv\Statement;
-use League\Csv\Reader;
+use Csv\XMLConverter;
+use Csv\Statement;
+use Csv\Reader;
 
 $csv = Reader::createFromPath('/path/to/prenoms.csv', 'r');
 $csv->setDelimiter(';');

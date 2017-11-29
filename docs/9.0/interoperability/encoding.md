@@ -16,7 +16,7 @@ On Windows, MS Excel, expects an UTF-8 encoded CSV with its corresponding `BOM` 
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 //let's set the output BOM
@@ -32,14 +32,14 @@ echo $reader->getContent();
 
 ## MS Excel on MacOS
 
-On a MacOS system, MS Excel requires a CSV encoded in `UTF-16 LE` using the `tab` character as delimiter. Here's an example on how to meet those requirements using the `League\Csv` package.
+On a MacOS system, MS Excel requires a CSV encoded in `UTF-16 LE` using the `tab` character as delimiter. Here's an example on how to meet those requirements using the `Csv` package.
 
 ~~~php
 <?php
 
-use League\Csv\CharsetConverter;
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\CharsetConverter;
+use Csv\Reader;
+use Csv\Writer;
 
 //the current CSV is ISO-8859-15 encoded with a ";" delimiter
 $origin = Reader::createFromPath('/path/to/french.csv', 'r');
@@ -59,4 +59,4 @@ $writer->insertAll($origin);
 $writer->output('mycsvfile.csv');
 ~~~
 
-<p class="message-info">The conversion is done with the <code>mb_string</code> extension using the <a href="/9.0/converter/charset/">League\Csv\CharsetConverter</a>.</p>
+<p class="message-info">The conversion is done with the <code>mb_string</code> extension using the <a href="/9.0/converter/charset/">Csv\CharsetConverter</a>.</p>

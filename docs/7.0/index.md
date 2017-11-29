@@ -14,7 +14,7 @@ layout: default
 [![Quality Score](https://img.shields.io/scrutinizer/g/thephpleague/csv.svg?style=flat-square)](//scrutinizer-ci.com/g/thephpleague/csv)
 [![Total Downloads](https://img.shields.io/packagist/dt/league/csv.svg?style=flat-square)](//packagist.org/packages/league/csv)
 
-`League\Csv` is a simple library to ease CSV parsing, writing and filtering in
+`Csv` is a simple library to ease CSV parsing, writing and filtering in
 PHP. The goal of the library is to be as powerful while remaining lightweight,
 by utilizing PHP native classes whenever possible.
 
@@ -27,7 +27,7 @@ A simple example to show you how to parse a CSV document.
 ~~~php
 
 <?php
-use League\Csv\Reader;
+use Csv\Reader;
 
 $csv = Reader::createFromPath('/path/to/your/csv/file.csv', 'r');
 
@@ -45,7 +45,7 @@ A simple example to show you how to create and download a CSV from a `PDOStateme
 ~~~php
 
 <?php
-use League\Csv\Writer;
+use Csv\Writer;
 
 //we fetch the info from a DB using a PDO object
 $sth = $dbh->prepare(
@@ -82,7 +82,7 @@ A simple example to show you how to import some CSV data into a database using a
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 //We are going to insert some data into the users table
 $sth = $dbh->prepare(

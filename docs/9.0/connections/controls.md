@@ -26,7 +26,7 @@ public AbstractCsv::getDelimiter(void): string
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $csv = Reader::createFromPath('/path/to/file.csv', 'r');
 $csv->setDelimiter(';');
@@ -51,7 +51,7 @@ public AbstractCsv::getEnclosure(void): string
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $csv = Writer::createFromPath('/path/to/file.csv');
 $csv->setEnclosure('|');
@@ -76,7 +76,7 @@ public AbstractCsv::getEscape(void): string
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $csv = Reader::createFromPath('/path/to/file.csv', 'r');
 $csv->setEscape('\\');
@@ -108,7 +108,7 @@ echo $csv->getDelimiter(); //display '|'
 ~~~php
 <?php
 
-function League\Csv\delimiter_detect(Reader $csv, array $delimiters, $limit = 1): array
+function Csv\delimiter_detect(Reader $csv, array $delimiters, $limit = 1): array
 ~~~
 
 The `delimiter_detect` function helps detect the possible delimiter character used by the CSV document. This function returns the number of CSV fields found in the document depending on the submitted delimiters given.
@@ -124,8 +124,8 @@ and returns an associated array whose keys are the submitted delimiters characte
 ~~~php
 <?php
 
-use function League\Csv\delimiter_detect;
-use League\Csv\Reader;
+use function Csv\delimiter_detect;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/file.csv', 'r');
 $reader->setEnclosure('"');

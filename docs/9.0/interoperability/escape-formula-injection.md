@@ -41,8 +41,8 @@ The `EscapeFormula::__construct` method takes two (2) arguments:
 ~~~php
 <?php
 
-use League\Csv\EscapeFormula;
-use League\Csv\Writer;
+use Csv\EscapeFormula;
+use Csv\Writer;
 
 $writer = Writer::createFromPath('php://temp', 'r+');
 $writer->addFormatter(new EscapeFormula());
@@ -59,7 +59,7 @@ You can use the `EscapeFormula` to format your records before callng `fputcsv` o
 ~~~php
 <?php
 
-use League\Csv\EscapeFormula;
+use Csv\EscapeFormula;
 
 $resource = fopen('/path/to/my/file', 'r+');
 $formatter = new EscapeFormula("`");

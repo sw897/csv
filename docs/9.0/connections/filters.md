@@ -27,8 +27,8 @@ Regardless of stream filter API support by a specific CSV object, `getStreamFilt
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\Writer;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $reader->supportsStreamFilter(); //return true
@@ -39,7 +39,7 @@ $writer->supportsStreamFilter(); //return false the API can not be use
 $writer->getStreamFilterMode(); //return STREAM_FILTER_WRITE
 ~~~
 
-<p class="message-warning">A <code>League\Csv\Exception</code> exception will be thrown if you use the API on a object where <code>supportsStreamFilter</code> returns <code>false</code>.</p>
+<p class="message-warning">A <code>Csv\Exception</code> exception will be thrown if you use the API on a object where <code>supportsStreamFilter</code> returns <code>false</code>.</p>
 
 ### Cheat sheet
 
@@ -75,7 +75,7 @@ The `AbstractCsv::hasStreamFilter` method tells whether a specific stream filter
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 use MyLib\Transcode;
 
 stream_filter_register('convert.utf8decode', Transcode::class);
@@ -110,12 +110,12 @@ Conversely, stream filters added **without** `addStreamFilter` are:
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 use MyLib\Transcode;
 
 stream_filter_register('convert.utf8decode', Transcode::class);
 $fp = fopen('/path/to/my/chines.csv', 'r');
-stream_filter_append($fp, 'string.rot13'); //stream filter attached outside of League\Csv
+stream_filter_append($fp, 'string.rot13'); //stream filter attached outside of Csv
 $reader = Reader::createFromStream($fp);
 $reader->addStreamFilter('convert.utf8decode');
 $reader->addStreamFilter('string.toupper');

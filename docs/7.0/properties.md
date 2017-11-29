@@ -44,7 +44,7 @@ The default escape character is `\`.
 
 ### The SplFileObject flags
 
-`League\Csv` objects rely internally on the `SplFileObject` class. In order to fine tune the class behavior you can adjust the [SplFileObject flags](http://php.net/manual/en/class.splfileobject.php#splfileobject.constants) used.
+`Csv` objects rely internally on the `SplFileObject` class. In order to fine tune the class behavior you can adjust the [SplFileObject flags](http://php.net/manual/en/class.splfileobject.php#splfileobject.constants) used.
 
 ~~~php
 <?php

@@ -6,7 +6,7 @@ redirect_from: /inserting/
 
 # Inserting Data
 
-To create or update a CSV use the following `League\Csv\Writer` methods.
+To create or update a CSV use the following `Csv\Writer` methods.
 
 <p class="message-info">When creating a file using the library, first insert all the data that need to be inserted before starting manipulating the CSV. If you manipulate your data before insertion, you may change the file cursor position and get unexpected results.</p>
 
@@ -45,7 +45,7 @@ This method takes a single argument `$row` which can be
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 class ToStringEnabledClass
 {
@@ -92,7 +92,7 @@ to add several rows to the CSV data.
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $rows = [
     [1, 2, 3],
@@ -141,7 +141,7 @@ public Writer::clearFormatters(void): Writer
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $formatter = function ($row) {
     return array_map('strtoupper', $row);
@@ -168,7 +168,7 @@ function(array $row): bool
 
 The validator **must** return `true` to validate the submitted row.
 
-Any other expression, including thruthy ones like `yes`, `1`,... will make the `insertOne` method throw an `League\Csv\Exception\InvalidRowException`.
+Any other expression, including thruthy ones like `yes`, `1`,... will make the `insertOne` method throw an `Csv\Exception\InvalidRowException`.
 
 As with the new formatter capabilities, you can attach as many validators as you want to your data prior to its insertion. The row data is checked against your supplied validators **after being formatted**.
 
@@ -194,7 +194,7 @@ public Writer::clearValidators(void): Writer
 
 ### Validation failed
 
-If the validation failed a `League\Csv\Exception\InvalidRowException` is thrown by the `Writer` object.
+If the validation failed a `Csv\Exception\InvalidRowException` is thrown by the `Writer` object.
 This exception extends PHP's `InvalidArgumentException` by adding two public getter methods
 
 ~~~php
@@ -212,8 +212,8 @@ public InvalidRowException::getData(void): array
 ~~~php
 <?php
 
-use League\Csv\Writer;
-use League\Csv\Exception\InvalidRowException;
+use Csv\Writer;
+use Csv\Exception\InvalidRowException;
 
 $writer->addValidator(function (array $row) {
     return 10 == count($row);
@@ -230,30 +230,30 @@ try {
 
 ### Null value validator
 
-The `League\Csv\Plugin\ForbiddenNullValuesValidator` class validates the absence of `null` values
+The `Csv\Plugin\ForbiddenNullValuesValidator` class validates the absence of `null` values
 
 ~~~php
 <?php
 
-use League\Csv\Writer;
-use League\Csv\Plugin\ForbiddenNullValuesValidator;
+use Csv\Writer;
+use Csv\Plugin\ForbiddenNullValuesValidator;
 
 $validator = new ForbiddenNullValuesValidator();
 $writer = Writer::createFromPath('/path/to/your/csv/file.csv');
 $writer->addValidator($validator, 'null_as_exception');
 $writer->insertOne(["foo", null, "bar"]);
-// will throw an League\Csv\Exception\InvalidRowException
+// will throw an Csv\Exception\InvalidRowException
 ~~~
 
 ### Null value formatting
 
-The `League\Csv\Plugin\SkipNullValuesFormatter` class skips cell using founded `null` values
+The `Csv\Plugin\SkipNullValuesFormatter` class skips cell using founded `null` values
 
 ~~~php
 <?php
 
-use League\Csv\Writer;
-use League\Csv\Plugin\SkipNullValuesFormatter;
+use Csv\Writer;
+use Csv\Plugin\SkipNullValuesFormatter;
 
 $formatter = new SkipNullValuesFormatter();
 
@@ -265,13 +265,13 @@ $writer->insertOne(["foo", null, "bar"]);
 
 ### Records consistency check
 
-The `League\Csv\Plugin\ColumnConsistencyValidator` class validates the inserted record column count consistency.
+The `Csv\Plugin\ColumnConsistencyValidator` class validates the inserted record column count consistency.
 
 ~~~php
 <?php
 
-use League\Csv\Writer;
-use League\Csv\Plugin\ColumnConsistencyValidator;
+use Csv\Writer;
+use Csv\Plugin\ColumnConsistencyValidator;
 
 $validator = new ColumnConsistencyValidator();
 $validator->autodetectColumnsCount();
@@ -297,7 +297,7 @@ At any given time you can get and modify the `$newline` property using the `getN
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $writer = Writer::createFromFileObject(new SplFileObject());
 $newline = $writer->getNewline(); // equals "\n";

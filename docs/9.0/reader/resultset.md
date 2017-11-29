@@ -18,7 +18,7 @@ class ResultSet implements Countable, IteratorAggregate, JsonSerializable
 }
 ~~~
 
-A `League\Csv\ResultSet` object represents the associated result set of processing a [CSV document](/9.0/reader/) with a [constraint builder](/9.0/reader/statement/). This object is returned from [Statement::process](/9.0/reader/statement/#apply-the-constraints-to-a-csv-document) execution.
+A `Csv\ResultSet` object represents the associated result set of processing a [CSV document](/9.0/reader/) with a [constraint builder](/9.0/reader/statement/). This object is returned from [Statement::process](/9.0/reader/statement/#apply-the-constraints-to-a-csv-document) execution.
 
 ## Informations
 
@@ -36,8 +36,8 @@ public ResultSet::getHeader(): array
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $records = (new Statement())->process($reader);
@@ -49,7 +49,7 @@ $records->getHeader(); // is empty because no header information was given
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $reader->setHeaderOffset(0);
@@ -63,8 +63,8 @@ $records->getHeader(); // returns ['First Name', 'Last Name', 'E-mail'];
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $reader->setHeaderOffset(0);
@@ -80,8 +80,8 @@ The `ResultSet` class implements implements the `Countable` interface.
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $records = (new Statement())->process($reader);
@@ -103,8 +103,8 @@ To iterate over each found records you can call the `ResultSet::getRecords` meth
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $records = (new Statement())->process($reader);
@@ -125,8 +125,8 @@ If the `ResultSet::getHeader` is not an empty `array` the found records keys wil
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $reader->setHeaderOffset(0);
@@ -158,8 +158,8 @@ The `$nth_record` argument represents the nth record contained in the result set
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $reader->setHeaderOffset(0);
@@ -194,8 +194,8 @@ the `$columnIndex` parameter can be:
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $records = (new Statement())->process($reader);
@@ -221,8 +221,8 @@ foreach ($records->fetchColumn('E-mail') as $value) {
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $records = (new Statement())->process($reader);
@@ -236,8 +236,8 @@ count(iterator_to_array($records->fetchColumn(2), false)); //returns 5
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $reader->setHeaderOffset(0);
@@ -270,7 +270,7 @@ These arguments behave exactly like the `$columnIndex` from `ResultSet::fetchCol
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $str = <<EOF
 john,doe
@@ -279,8 +279,8 @@ foo,bar
 sacha
 EOF;
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 $reader = Reader::createFromString($str);
 $records = (new Statement())->process($reader);
@@ -319,8 +319,8 @@ The `ResultSet` class implements the `JsonSerializable` interface. As such you c
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 $records = [
     ['firstname', 'lastname', 'e-mail', 'phone'],

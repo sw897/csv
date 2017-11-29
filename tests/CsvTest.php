@@ -2,17 +2,17 @@
 
 namespace LeagueTest\Csv;
 
-use League\Csv\Exception;
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Exception;
+use Csv\Reader;
+use Csv\Writer;
 use PHPUnit\Framework\TestCase;
 use SplTempFileObject;
 use TypeError;
-use function League\Csv\is_iterable;
+use function Csv\is_iterable;
 
 /**
  * @group csv
- * @coversDefaultClass League\Csv\AbstractCsv
+ * @coversDefaultClass Csv\AbstractCsv
  */
 class CsvTest extends TestCase
 {
@@ -59,7 +59,7 @@ class CsvTest extends TestCase
 
     /**
      * @covers ::createFromPath
-     * @covers League\Csv\Stream
+     * @covers Csv\Stream
      */
     public function testCreateFromPathThrowsRuntimeException()
     {
@@ -142,7 +142,7 @@ EOF;
      * @covers ::output
      * @covers ::sendHeaders
      * @covers ::createFromString
-     * @covers League\Csv\Stream
+     * @covers Csv\Stream
      */
     public function testOutputHeaders()
     {
@@ -285,7 +285,7 @@ EOF;
 
     /**
      * @covers ::addStreamFilter
-     * @covers League\Csv\Stream
+     * @covers Csv\Stream
      */
     public function testAddStreamFilter()
     {
@@ -301,7 +301,7 @@ EOF;
     /**
      * @covers ::supportsStreamFilter
      * @covers ::addStreamFilter
-     * @covers League\Csv\Exception
+     * @covers Csv\Exception
      */
     public function testFailedAddStreamFilter()
     {
@@ -314,7 +314,7 @@ EOF;
     /**
      * @covers ::supportsStreamFilter
      * @covers ::addStreamFilter
-     * @covers League\Csv\Stream::appendFilter
+     * @covers Csv\Stream::appendFilter
      */
     public function testFailedAddStreamFilterWithWrongFilter()
     {
@@ -326,7 +326,7 @@ EOF;
     /**
      * @covers ::hasStreamFilter
      * @covers ::supportsStreamFilter
-     * @covers League\Csv\Stream
+     * @covers Csv\Stream
      */
     public function testStreamFilterDetection()
     {
@@ -352,7 +352,7 @@ EOF;
 
     /**
      * @covers ::addStreamFilter
-     * @covers League\Csv\Stream
+     * @covers Csv\Stream
      */
     public function testSetStreamFilterOnWriter()
     {
@@ -363,7 +363,7 @@ EOF;
     }
 
     /**
-     * @covers League\Csv\Stream
+     * @covers Csv\Stream
      */
     public function testSetCsvControlWithDocument()
     {
@@ -377,7 +377,7 @@ EOF;
     }
 
     /**
-     * @covers \League\Csv\is_iterable
+     * @covers \Csv\is_iterable
      */
     public function testIsIterablePolyFill()
     {

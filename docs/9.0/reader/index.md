@@ -20,7 +20,7 @@ class Reader extends AbstractCsv implements Countable, IteratorAggregate, JsonSe
 }
 ~~~
 
-The `League\Csv\Reader` class extends the general connections [capabilities](/9.0/connections/) to ease selecting and manipulating CSV document records.
+The `Csv\Reader` class extends the general connections [capabilities](/9.0/connections/) to ease selecting and manipulating CSV document records.
 
 <p class="message-notice">Starting with version <code>9.1.0</code>, <code>createFromPath</code> when used from the <code>Reader</code> object will have its default set to <code>r</code>.</p>
 
@@ -55,7 +55,7 @@ public Reader::getHeader(void): array
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $csv = Reader::createFromPath('/path/to/file.csv', 'r');
 $csv->setHeaderOffset(0);
@@ -75,7 +75,7 @@ If no header offset is set:
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $csv = Reader::createFromPath('/path/to/file.csv', 'r');
 $csv->setHeaderOffset(1000); //valid offset but the CSV does not contain 1000 records
@@ -101,7 +101,7 @@ The `Reader` class let's you access all its records using the `Reader::getRecord
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $records = $reader->getRecords();
@@ -124,7 +124,7 @@ If you specify the CSV header offset using `setHeaderOffset`, the found record w
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $reader->setHeaderOffset(0);
@@ -148,7 +148,7 @@ Conversely, you can submit your own header record using the optional `$header` a
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $records = $reader->getRecords(['firstname', 'lastname', 'email']);
@@ -168,7 +168,7 @@ foreach ($records as $offset => $record) {
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $reader->setHeaderOffset(0);
@@ -195,7 +195,7 @@ You will get the same results as if you had called `Reader::getRecords` without 
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $reader->setHeaderOffset(0);
@@ -224,7 +224,7 @@ The returned records are normalized using the following rules:
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $reader->setHeaderOffset(0);
@@ -248,7 +248,7 @@ You can retrieve the number of records contains in a CSV document using PHP's `c
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 count($reader); //returns 4
@@ -259,7 +259,7 @@ If a header offset is specified, the number of records will not take into accoun
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $reader->setHeaderOffset(0);
@@ -287,7 +287,7 @@ Using method overloading, you can directly access all retrieving methods attache
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 
@@ -304,8 +304,8 @@ If you require a more advance record selection, you should use a [Statement](/9.
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $stmt = (new Statement())
@@ -314,7 +314,7 @@ $stmt = (new Statement())
 ;
 
 $records = $stmt->process($reader);
-//$records is a League\Csv\ResultSet object
+//$records is a Csv\ResultSet object
 ~~~
 
 ## Records conversion
@@ -326,7 +326,7 @@ The `Reader` class implements the `JsonSerializable` interface. As such you can 
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $records = [
     ['firstname', 'lastname', 'e-mail', 'phone'],

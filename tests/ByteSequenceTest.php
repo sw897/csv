@@ -2,9 +2,9 @@
 
 namespace LeagueTest\Csv;
 
-use League\Csv\ByteSequence;
+use Csv\ByteSequence;
 use PHPUnit\Framework\TestCase;
-use function League\Csv\bom_match;
+use function Csv\bom_match;
 
 /**
  * @group csv
@@ -15,7 +15,7 @@ class ByteSequenceTest extends TestCase
      * @dataProvider ByteSequenceMatchProvider
      * @param string $str
      * @param string $expected
-     * @covers League\Csv\bom_match
+     * @covers Csv\bom_match
      */
     public function testByteSequenceMatch($str, $expected)
     {

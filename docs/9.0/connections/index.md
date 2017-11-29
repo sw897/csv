@@ -38,10 +38,10 @@ abstract class AbstractCsv implements ByteSequence
 
 Accessing the CSV document is done using one of the following class:
 
-* `League\Csv\Reader` to connect on a [read only mode](/9.0/reader/)
-* `League\Csv\Writer` to connect on a [write only mode](/9.0/writer/)
+* `Csv\Reader` to connect on a [read only mode](/9.0/reader/)
+* `Csv\Writer` to connect on a [write only mode](/9.0/writer/)
 
-Both classes extend the `League\Csv\AbstractCsv` class and as such share the following features:
+Both classes extend the `Csv\AbstractCsv` class and as such share the following features:
 
 - [Loading CSV document](/9.0/connections/instantiation/)
 - [Setting up the CSV controls characters](/9.0/connections/controls/)
@@ -65,13 +65,13 @@ if (!ini_get("auto_detect_line_endings")) {
 
 ## Exceptions
 
-The default exception class thrown while using this library is `League\Csv\Exception` which extends PHP `Exception` class.
+The default exception class thrown while using this library is `Csv\Exception` which extends PHP `Exception` class.
 
 ~~~php
 <?php
 
-use League\Csv\Exception;
-use League\Csv\Reader;
+use Csv\Exception;
+use Csv\Reader;
 
 try {
     $csv = Reader::createFromPath('/path/to/file.csv', 'r');
@@ -81,13 +81,13 @@ try {
 }
 ~~~
 
-When using a non-seekable `SplFileObject`, a `RuntimeException` is thrown instead of a `League\Csv\Exception` when using features that requires a seekable CSV document. In the following example a seekable CSV document is required to update the inserted newline.
+When using a non-seekable `SplFileObject`, a `RuntimeException` is thrown instead of a `Csv\Exception` when using features that requires a seekable CSV document. In the following example a seekable CSV document is required to update the inserted newline.
 
 ~~~php
 <?php
 
-use League\Csv\Exception;
-use League\Csv\Writer;
+use Csv\Exception;
+use Csv\Writer;
 
 try {
     $csv = Writer::createFromFileObject(new SplFileObject('php://output', 'w');

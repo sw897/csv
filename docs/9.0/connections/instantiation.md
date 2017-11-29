@@ -22,8 +22,8 @@ Creates a new object from a given string.
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\Writer;
 
 $reader = Reader::createFromString('john,doe,john.doe@example.com');
 $writer = Writer::createFromString('john,doe,john.doe@example.com');
@@ -46,8 +46,8 @@ Creates a new object *à la* `fopen`.
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\Writer;
 
 
 $reader = Reader::createFromPath('/path/to/your/csv/file.csv', 'r');
@@ -75,14 +75,14 @@ Creates a new object from a stream resource.
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\Writer;
 
 $reader = Reader::createFromStream(fopen('/path/to/the/file.csv', 'r+'));
 $writer = Writer::createFromStream(tmpfile());
 ~~~
 
-<p class="message-notice">Prior to version <code>9.1.0</code>, the method was throwing <code>League\Csv\Exception</code> for non-seekable stream resource.</p>
+<p class="message-notice">Prior to version <code>9.1.0</code>, the method was throwing <code>Csv\Exception</code> for non-seekable stream resource.</p>
 
 ## Loading from a SplFileObject object
 
@@ -97,8 +97,8 @@ Creates a new object from a `SplFileObject` object.
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\Writer;
 
 $reader = Reader::createFromFileObject(new SplFileObject('/path/to/your/csv/file.csv'));
 $writer = Writer::createFromFileObject(new SplTempFileObject());

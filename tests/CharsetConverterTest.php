@@ -4,16 +4,16 @@ namespace LeagueTest\Csv;
 
 use ArrayIterator;
 use Iterator;
-use League\Csv\CharsetConverter;
-use League\Csv\Exception;
-use League\Csv\Reader;
+use Csv\CharsetConverter;
+use Csv\Exception;
+use Csv\Reader;
 use OutOfRangeException;
 use PHPUnit\Framework\TestCase;
 use TypeError;
 
 /**
  * @group converter
- * @coversDefaultClass League\Csv\CharsetConverter
+ * @coversDefaultClass Csv\CharsetConverter
  */
 class CharsetConverterTest extends TestCase
 {

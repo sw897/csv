@@ -6,7 +6,7 @@ redirect_from: /reading/
 
 # Extracting data
 
-To extract data from a CSV document use `League\Csv\Reader` methods.
+To extract data from a CSV document use `Csv\Reader` methods.
 
 <p class="message-warning">
 By default, the mode for a <code>Reader::createFromPath</code> is
@@ -41,7 +41,7 @@ function(array $row [, int $rowOffset [, Iterator $iterator]]): array
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $results = $reader->fetch();
@@ -55,7 +55,7 @@ foreach ($results as $row) {
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $func = function ($row) {
     return array_map('strtoupper', $row);
@@ -99,7 +99,7 @@ The required argument `$offset` represents the row index starting at `0`. If no 
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $data = $reader->fetchOne(3); ///accessing the 4th row (indexing starts at 0)
@@ -140,7 +140,7 @@ The callable must return `true` to continue iterating over the CSV;
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 
@@ -175,7 +175,7 @@ This `$offset_or_keys` argument can be
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $keys = ['firstname', 'lastname', 'email'];
@@ -237,7 +237,7 @@ function(array $row [, int $rowOffset [, Iterator $iterator]]): array
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $func = function ($row) {
     $row['date'] = DateTimeImmutable::createFromFormat($row['date'], 'd-m-Y');
@@ -274,7 +274,7 @@ If for a given row the column does not exist, the row will be skipped.
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $result = $reader->fetchColumn(2);
@@ -306,7 +306,7 @@ function(string $value [, int $offsetIndex [, Iterator $iterator]]): mixed
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 foreach ($reader->fetchColumn(2, 'strtoupper') as $value) {
@@ -338,7 +338,7 @@ public Reader::fetchPairs(
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $str = <<EOF
 john,doe
@@ -388,7 +388,7 @@ function(array $pairs [, int $rowOffset [, Iterator $iterator]]): array
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $str = <<EOF
 john,doe

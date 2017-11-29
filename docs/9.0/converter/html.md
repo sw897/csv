@@ -73,7 +73,7 @@ The `HTMLConverter::convert` accepts an `iterable` which represents the records 
 ~~~php
 <?php
 
-use League\Csv\HTMLConverter;
+use Csv\HTMLConverter;
 
 //we fetch the info from a DB using a PDO object
 $sth = $dbh->prepare("SELECT firstname, lastname, email FROM users LIMIT 2");

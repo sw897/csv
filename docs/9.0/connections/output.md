@@ -9,7 +9,7 @@ Once your CSV document is loaded, you can print or enable downloading it using t
 
 The output methods **are affected by** [the output BOM sequence](/9.0/connections/bom/) and/or the supplied [PHP stream filters](/9.0/connections/filters/).
 
-<p class="message-info">Even though you can use the following methods with the <code>League\Csv\Writer</code> object. It is recommended to do so with the <code>League\Csv\Reader</code> class to avoid losing the file cursor position and getting unexpected results when inserting new data.</p>
+<p class="message-info">Even though you can use the following methods with the <code>Csv\Writer</code> object. It is recommended to do so with the <code>Csv\Reader</code> class to avoid losing the file cursor position and getting unexpected results when inserting new data.</p>
 
 
 ## Printing the document
@@ -32,7 +32,7 @@ Use the `getContent` method to return the CSV full content.
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 echo $reader->getContent();
@@ -47,7 +47,7 @@ If the CSV document is not seekable a `Exception` or a `RuntimeException` may be
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $csv = Writer::createFromFileObject('php://output', 'w');
 $csv->insertOne(['foo', 'bar']);
@@ -60,7 +60,7 @@ echo $csv->getContent();
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $csv = Writer::createFromFileObject('php://output', 'w');
 $csv->insertOne(['foo', 'bar']);
@@ -90,7 +90,7 @@ can even remove more headers.
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 header('Content-Type: text/csv; charset=UTF-8');
 header('Content-Description: File Transfer');
@@ -106,7 +106,7 @@ die;
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('file.csv');
 $reader->output("name-for-your-file.csv");
@@ -132,7 +132,7 @@ The `AbstractCsv::chunk` method takes a single `$length` parameter specifying th
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 header('Transfer-Encoding: chunked');
 header('Content-Encoding: none');
@@ -154,7 +154,7 @@ To avoid breaking the flow of your application, you should create a Response obj
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 return new Response($reader->getContent(), 200, [
@@ -173,7 +173,7 @@ The following example uses Symfony's [StreamedResponse](http://symfony.com/doc/c
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 

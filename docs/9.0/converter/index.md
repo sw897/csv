@@ -13,7 +13,7 @@ The package provides classes which convert any collection of CSV records into:
 - a `DOMDocument` object using the [XMLConverter](/9.0/converter/xml/) class;
 - a HTML table using the [HTMLConverter](/9.0/converter/html/) class;
 
-<p class="message-warning"><strong>Warning:</strong> A <code>League\Csv\Writer</code> object can not be converted.</p>
+<p class="message-warning"><strong>Warning:</strong> A <code>Csv\Writer</code> object can not be converted.</p>
 
 ## Converters are immutable
 
@@ -23,4 +23,4 @@ When building a converter object, the methods do not need to be called in any pa
 
 ## Converters exceptions
 
-Because converters do not directly deals with CSV document but with their contents. On error theses classes trigger PHP's Exceptions instead of `League\Csv\Exception` exception.
+Because converters do not directly deals with CSV document but with their contents. On error theses classes trigger PHP's Exceptions instead of `Csv\Exception` exception.

@@ -39,8 +39,8 @@ The `EncloseField::addTo` method will:
 ~~~php
 <?php
 
-use League\Csv\EncloseField;
-use League\Csv\Writer;
+use Csv\EncloseField;
+use Csv\Writer;
 
 $writer = Writer::createFromPath('php://temp');
 EncloseField::addTo($writer, "\t\x1f"); //adding the stream filter to force enclosure
@@ -59,7 +59,7 @@ public static EncloseField::register(): void
 public static EncloseField::getFiltername(): string
 ~~~
 
-To use this stream filter outside `League\Csv` objects you need to:
+To use this stream filter outside `Csv` objects you need to:
 
 - register the stream filter using `EncloseField::register` method.
 - use `EncloseField::getFiltername` with one of PHP's attaching stream filter functions with the correct arguments as shown below:
@@ -67,7 +67,7 @@ To use this stream filter outside `League\Csv` objects you need to:
 ~~~php
 <?php
 
-use League\Csv\EncloseField;
+use Csv\EncloseField;
 
 EncloseField::register();
 

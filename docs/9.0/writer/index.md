@@ -21,9 +21,9 @@ class Writer extends AbstractCsv
 }
 ~~~
 
-The `League\Csv\Writer` class extends the general connections [capabilities](/9.0/connections/) to create or update a CSV document.
+The `Csv\Writer` class extends the general connections [capabilities](/9.0/connections/) to create or update a CSV document.
 
-<p class="message-warning">When inserting records into a CSV document using <code>League\Csv\Writer</code>, first insert all the data that need to be inserted before starting manipulating the CSV. If you manipulate your CSV document before insertion, you may change the file cursor position and erase your data.</p>
+<p class="message-warning">When inserting records into a CSV document using <code>Csv\Writer</code>, first insert all the data that need to be inserted before starting manipulating the CSV. If you manipulate your CSV document before insertion, you may change the file cursor position and erase your data.</p>
 
 ## Inserting records
 
@@ -42,7 +42,7 @@ public Writer::insertAll(iterable $records): int
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $records = [
     [1, 2, 3],
@@ -58,13 +58,13 @@ $writer->insertAll(new ArrayIterator($records)); //using a Traversable object
 
 In the above example, all CSV records are saved to `/path/to/saved/file.csv`
 
-If the record can not be inserted into the CSV document a `League\Csv\CannotInsertRecord` exception is thrown. This exception extends `League\Csv\Exception` and adds the ability to get the record on which the insertion failed.
+If the record can not be inserted into the CSV document a `Csv\CannotInsertRecord` exception is thrown. This exception extends `Csv\Exception` and adds the ability to get the record on which the insertion failed.
 
 ~~~php
 <?php
 
-use League\Csv\CannotInsertRecord;
-use League\Csv\Writer;
+use Csv\CannotInsertRecord;
+use Csv\Writer;
 
 $records = [
     [1, 2, 3],
@@ -98,7 +98,7 @@ public Writer::getNewline(void): string
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $writer = Writer::createFromFileObject(new SplFileObject());
 $newline = $writer->getNewline(); // equals "\n";
@@ -161,7 +161,7 @@ You can attach as many formatters as you want to the `Writer` class using the `W
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $formatter = function (array $row): array {
     return array_map('strtoupper', $row);
@@ -188,7 +188,7 @@ function(array $record): bool
 
 The validator **must** return `true` to validate the submitted record.
 
-Any other expression, including thruthy ones like `yes`, `1`,... will make the `insertOne` method throw an `League\Csv\CannotInsertRecord`.
+Any other expression, including thruthy ones like `yes`, `1`,... will make the `insertOne` method throw an `Csv\CannotInsertRecord`.
 
 #### Adding a Validator to a Writer object
 
@@ -201,7 +201,7 @@ As with the formatter capabilities, you can attach as many validators as you wan
 - A validator `callable`;
 - A validator name. If another validator was already registered with the given name, it will be overriden.
 
-On failure a `League\Csv\CannotInsertRecord` exception is thrown.  
+On failure a `Csv\CannotInsertRecord` exception is thrown.  
 This exception will give access to:
 
 - the validator name;
@@ -210,8 +210,8 @@ This exception will give access to:
 ~~~php
 <?php
 
-use League\Csv\Writer;
-use League\Csv\CannotInsertRecord;
+use Csv\Writer;
+use Csv\CannotInsertRecord;
 
 $writer->addValidator(function (array $row): bool {
     return 10 == count($row);

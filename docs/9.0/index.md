@@ -11,7 +11,7 @@ layout: default
 [![Build Status](//img.shields.io/travis/thephpleague/csv/master.svg?style=flat-square)](//travis-ci.org/thephpleague/csv)
 [![Total Downloads](//img.shields.io/packagist/dt/league/csv.svg?style=flat-square)](//packagist.org/packages/league/csv)
 
-**League\Csv** is a simple library to ease CSV documents [loading](/9.0/connections/) as well as [writing](/9.0/writer/), [selecting](/9.0/reader/) and [converting](/9.0/converter/) CSV records.
+**Csv** is a simple library to ease CSV documents [loading](/9.0/connections/) as well as [writing](/9.0/writer/), [selecting](/9.0/reader/) and [converting](/9.0/converter/) CSV records.
 
 ## Usage
 
@@ -22,8 +22,8 @@ Accessing some records from a given CSV documents.
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 $csv = Reader::createFromPath('/path/to/your/csv/file.csv', 'r');
 $csv->setHeaderOffset(0); //set the CSV header offset
@@ -48,7 +48,7 @@ Create and download a CSV from a `PDOStatement` object
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 //we fetch the info from a DB using a PDO object
 $sth = $dbh->prepare(
@@ -85,7 +85,7 @@ Importing CSV records into a database using a `PDOStatement` object
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 //We are going to insert some data into the users table
 $sth = $dbh->prepare(
@@ -115,8 +115,8 @@ When importing csv files, you don't know whether the file is encoded with `UTF-8
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\CharsetConverter;
+use Csv\Reader;
+use Csv\CharsetConverter;
 
 $csv = Reader::createFromPath('/path/to/your/csv/file.csv', 'r');
 $csv->setHeaderOffset(0);
@@ -139,8 +139,8 @@ Using the provided `XMLConverter` object you can easily convert a CSV document i
 ~~~php
 <?php
 
-use League\Csv\XMLConverter;
-use League\Csv\Reader;
+use Csv\XMLConverter;
+use Csv\Reader;
 
 $csv = Reader::createFromPath('/path/to/prenoms.csv', 'r')
 $csv->setDelimiter(';');

@@ -2,12 +2,12 @@
 
 namespace LeagueTest\Csv;
 
-use League\Csv\Exception;
-use League\Csv\Reader;
+use Csv\Exception;
+use Csv\Reader;
 use PHPUnit\Framework\TestCase;
 use SplTempFileObject;
 use TypeError;
-use function League\Csv\delimiter_detect;
+use function Csv\delimiter_detect;
 
 /**
  * @group reader

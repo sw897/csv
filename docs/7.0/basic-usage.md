@@ -5,7 +5,7 @@ title: Basic Usage
 
 # Basic usage
 
-<p class="message-info"><strong>Tips:</strong> Even though you can use the following methods with the <code>League\Csv\Writer</code> object. It is recommended to do so with the <code>League\Csv\Reader</code> class to avoid losing the file cursor position and getting unexpected results when inserting new data.</p>
+<p class="message-info"><strong>Tips:</strong> Even though you can use the following methods with the <code>Csv\Writer</code> object. It is recommended to do so with the <code>Csv\Reader</code> class to avoid losing the file cursor position and getting unexpected results when inserting new data.</p>
 
 Once your CSV object is [instantiated](/7.0/instantiation) and [configured](/7.0/properties/), you can start interacting with the data using a number of methods available to you. For starters, you can iterate over your newly object to extract each CSV row using the `foreach` construct.
 
@@ -20,7 +20,7 @@ foreach ($reader as $index => $row) {
 }
 ~~~
 
-<p class="message-notice">You can do more complex iterations <a href="/7.0/reading/">using the query methods</a> available on the <code>League\Csv\Reader</code> class only.</a></p>
+<p class="message-notice">You can do more complex iterations <a href="/7.0/reading/">using the query methods</a> available on the <code>Csv\Reader</code> class only.</a></p>
 
 ## Outputting the CSV
 

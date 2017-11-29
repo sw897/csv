@@ -12,7 +12,7 @@
 */
 declare(strict_types=1);
 
-namespace League\Csv;
+namespace Csv;
 
 /**
  * League Csv Base Exception

@@ -6,7 +6,7 @@ redirect_from: /converting/
 
 # Converting the CSV
 
-The `League\Csv` object can convert your CSV document into JSON, XML and HTML formats. In order to do so, the conversion methods assume that your CSV is UTF-8 encoded. To properly transcode your document into an UTF-8 compatible charset, it's recommended to use the <a href="/8.0/filtering/">library stream filtering mechanism</a>.
+The `Csv` object can convert your CSV document into JSON, XML and HTML formats. In order to do so, the conversion methods assume that your CSV is UTF-8 encoded. To properly transcode your document into an UTF-8 compatible charset, it's recommended to use the <a href="/8.0/filtering/">library stream filtering mechanism</a>.
 
 When this is not possible/applicable you can fallback to using the `setEncodingFrom` and `getEncodingFrom` methods.
 
@@ -45,7 +45,7 @@ This method accepts 3 optionals arguments to help you customize the XML tree:
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/file.csv', 'r');
 $dom = $reader->toXML('data', 'line', 'item');
@@ -67,7 +67,7 @@ rendering. By defaut the classname given to the table is `table-csv-data`.
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/file.csv', 'r');
 echo $reader->toHTML('table table-bordered table-hover');
@@ -78,7 +78,7 @@ echo $reader->toHTML('table table-bordered table-hover');
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromFileObject(new SplFileObject('/path/to/bengali.csv'));
 //we are using the setEncodingFrom method to transcode the CSV into UTF-8

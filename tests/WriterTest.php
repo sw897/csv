@@ -3,9 +3,9 @@
 namespace LeagueTest\Csv;
 
 use ArrayIterator;
-use League\Csv\CannotInsertRecord;
-use League\Csv\Exception;
-use League\Csv\Writer;
+use Csv\CannotInsertRecord;
+use Csv\Exception;
+use Csv\Writer;
 use PHPUnit\Framework\TestCase;
 use SplFileObject;
 use SplTempFileObject;
@@ -15,7 +15,7 @@ use TypeError;
 
 /**
  * @group writer
- * @coversDefaultClass League\Csv\Writer
+ * @coversDefaultClass Csv\Writer
  */
 class WriterTest extends TestCase
 {
@@ -49,7 +49,7 @@ class WriterTest extends TestCase
 
     /**
      * @covers ::setFlushThreshold
-     * @covers \League\Csv\is_nullable_int
+     * @covers \Csv\is_nullable_int
      */
     public function testflushThresholdThrowsTypeError()
     {
@@ -101,7 +101,7 @@ class WriterTest extends TestCase
 
     /**
      * @covers ::insertOne
-     * @covers League\Csv\CannotInsertRecord
+     * @covers Csv\CannotInsertRecord
      */
     public function testInsertThrowsExceptionOnError()
     {
@@ -175,7 +175,7 @@ class WriterTest extends TestCase
      * @covers ::getNewline
      * @covers ::insertOne
      * @covers ::consolidate
-     * @covers League\Csv\Stream
+     * @covers Csv\Stream
      */
     public function testCustomNewline()
     {
@@ -210,7 +210,7 @@ class WriterTest extends TestCase
     }
 
     /**
-     * @covers League\Csv\Stream::fseek
+     * @covers Csv\Stream::fseek
      */
     public function testWriterTriggerExceptionWithNonSeekableStream()
     {

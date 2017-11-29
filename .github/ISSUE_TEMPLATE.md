@@ -8,7 +8,7 @@ _(In case of a bug report Please complete the table below)_
 
 | Information | Description |
 |--------------|---------|
-| League\Csv version |  |
+| Csv version |  |
 | PHP/HHVM version |  |
 | OS Platform |  |
 

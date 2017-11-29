@@ -22,13 +22,13 @@ The `RFC4180Field` class enables to work around the following bugs in PHP's nati
 - [bug #74713](https://bugs.php.net/bug.php?id=74713): CSV cell split after `fputcsv()` + `fgetcsv()` round trip.
 - [bug #38301](https://bugs.php.net/bug.php?id=38301): field enclosure behavior in `fputcsv` (since version `9.1.0`)
 
-When using this stream filter you can easily create or read a [RFC4180 compliant CSV document](https://tools.ietf.org/html/rfc4180#section-2) using `League\Csv` connections objects.
+When using this stream filter you can easily create or read a [RFC4180 compliant CSV document](https://tools.ietf.org/html/rfc4180#section-2) using `Csv` connections objects.
 
 
 <p class="message-warning">Changing the CSV objects control characters <strong>after registering the stream filter</strong> may result in unexpected returned records.</p>
 
 
-## Usage with League\CSV objects
+## Usage with CSV objects
 
 ~~~php
 <?php
@@ -45,8 +45,8 @@ The `RFC4180Field::addTo` method will register the stream filter if it is not al
 ~~~php
 <?php
 
-use League\Csv\RFC4180Field;
-use League\Csv\Writer;
+use Csv\RFC4180Field;
+use Csv\Writer;
 
 $writer = Writer::createFromPath('php://temp', 'r+');
 $writer->setNewline("\r\n"); //RFC4180 Line feed
@@ -69,8 +69,8 @@ its value will be used to:
 ~~~php
 <?php
 
-use League\Csv\RFC4180Field;
-use League\Csv\Writer;
+use Csv\RFC4180Field;
+use Csv\Writer;
 
 $writer = Writer::createFromPath('php://temp', 'r+');
 RFC4180Field::addTo($writer, "\0");
@@ -83,8 +83,8 @@ echo $writer->getContent(); //display 'foo bar,bar' instead of '"foo bar",bar'
 ~~~php
 <?php
 
-use League\Csv\RFC4180Field;
-use League\Csv\Writer;
+use Csv\RFC4180Field;
+use Csv\Writer;
 
 $writer = Writer::createFromPath('php://temp', 'r+');
 RFC4180Field::addTo($writer, 'fo'); // incorrect sequence this will alter your CSV
@@ -94,19 +94,19 @@ echo $writer->getContent(); //display ' o bar,baz' instead of foo bar,baz
 
 ### On records insertion
 
-<p class="message-info">To fully comply with <code>RFC4180</code> you will also need to use <code>League\Csv\Writer::setNewline</code> method.</p>
+<p class="message-info">To fully comply with <code>RFC4180</code> you will also need to use <code>Csv\Writer::setNewline</code> method.</p>
 
 
 ### On records extraction
 
 
-Conversely, to read a RFC4180 compliant CSV document, when using the `League\Csv\Reader` object, just need to add the `League\Csv\RFC4180Field` stream filter as shown below:
+Conversely, to read a RFC4180 compliant CSV document, when using the `Csv\Reader` object, just need to add the `Csv\RFC4180Field` stream filter as shown below:
 
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\RFC4180Field;
+use Csv\Reader;
+use Csv\RFC4180Field;
 
 //the current CSV is ISO-8859-15 encoded with a ";" delimiter
 $csv = Reader::createFromPath('/path/to/rfc4180-compliant.csv', 'r');
@@ -126,7 +126,7 @@ public static RFC4180Field::register(): void
 public static RFC4180Field::getFiltername(): string
 ~~~
 
-To use this stream filter outside `League\Csv` objects you need to:
+To use this stream filter outside `Csv` objects you need to:
 
 - register the stream filter using `RFC4180Field::register` method.
 - use `RFC4180Field::getFiltername` with one of PHP's attaching stream filter functions with the correct arguments as shown below:
@@ -134,7 +134,7 @@ To use this stream filter outside `League\Csv` objects you need to:
 ~~~php
 <?php
 
-use League\Csv\RFC4180Field;
+use Csv\RFC4180Field;
 
 RFC4180Field::register();
 

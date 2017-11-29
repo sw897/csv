@@ -18,7 +18,7 @@ class Statement
 }
 ~~~
 
-The `League\Csv\Statement` class is a constraint builder to help ease selecting records from a CSV document created using the `League\Csv\Reader` class.
+The `Csv\Statement` class is a constraint builder to help ease selecting records from a CSV document created using the `Csv\Reader` class.
 
 When building a constraint, the methods do not need to be called in any particular order, and may be called multiple times. Because the `Statement` object is immutable, each time its constraint methods are called they will return a new `Statement` object without modifying the current `Statement` object.
 
@@ -106,8 +106,8 @@ This method processes a [Reader](/9.0/reader/) object and returns the found reco
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 function filterByEmail(array $record): bool
 {
@@ -135,8 +135,8 @@ Just like the `Reader:getRecords`, the `Statement::process` method takes an opti
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 function filterByEmail(array $record): bool
 {

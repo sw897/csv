@@ -8,10 +8,10 @@ redirect_from: /instantiation/
 
 The library is composed of two main classes:
 
-* `League\Csv\Reader` to read data from a CSV
-* `League\Csv\Writer` to write new data into a CSV
+* `Csv\Reader` to read data from a CSV
+* `Csv\Writer` to write new data into a CSV
 
-Both classes extend the `League\Csv\AbstractCsv` class and as such share methods for instantiation.
+Both classes extend the `Csv\AbstractCsv` class and as such share methods for instantiation.
 
 ## Csv and Macintosh
 
@@ -57,8 +57,8 @@ The resulting string and `$open_mode` parameters are used to lazy load internall
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\Writer;
 
 $reader = Reader::createFromPath('/path/to/your/csv/file.csv', 'r');
 //the $reader object will use the 'r+' open mode as no `open_mode` parameter was supplied.
@@ -82,8 +82,8 @@ This method accepts only one single parameter, a `SplFileObject` object.
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\Writer;
 
 $reader = Reader::createFromFileObject(new SplFileObject('/path/to/your/csv/file.csv'));
 $writer = Writer::createFromFileObject(new SplTempFileObject());
@@ -105,8 +105,8 @@ This method accepts only one single parameter, an object implementing the `__toS
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\Writer;
 
 $reader = Reader::createFromString('john,doe,john.doe@example.com');
 $writer = Writer::createFromString('john,doe,john.doe@example.com');
@@ -130,8 +130,8 @@ This method accepts only one single parameter, a resource stream. The resource s
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\Writer;
 
 $reader = Reader::createFromStream(fopen('/path/to/the/file.csv', 'r+'));
 $writer = Writer::createFromStream(fopen('php://temp', 'r+'));
@@ -139,10 +139,10 @@ $writer = Writer::createFromStream(fopen('php://temp', 'r+'));
 
 ## Switching from one class to the other
 
-At any given time you can switch or create a new `League\Csv\Writer` or a new `League\Csv\Reader` from the current object. to do so you can use the following methods.
+At any given time you can switch or create a new `Csv\Writer` or a new `Csv\Reader` from the current object. to do so you can use the following methods.
 
-* the `newReader` to create a new `League\Csv\Reader` object;
-* the `newWriter` to create a new `League\Csv\Writer` object;
+* the `newReader` to create a new `Csv\Reader` object;
+* the `newWriter` to create a new `Csv\Writer` object;
 
 Both methods accept an optional `$open_mode` parameter.
 

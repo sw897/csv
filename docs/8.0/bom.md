@@ -31,7 +31,7 @@ public AbstractCsv::getInputBOM(void): string
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = new Reader::createFromPath('/path/to/your/file.csv', 'r');
 $res = $reader->getInputBOM(); //$res equals '' if no BOM is found
@@ -78,7 +78,7 @@ public AbstractCsv::getOutputBOM(void): string
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = new Reader::createFromPath('/path/to/your/file.csv', 'r');
 $reader->getOutputBOM(); //$res equals null;
@@ -92,7 +92,7 @@ echo $reader; //the BOM sequence is prepended to the CSV
 
 Depending on your operating system and on the software you are using to read/import your CSV you may need to adjust the encoding character and add its corresponding BOM character to your CSV.
 
-<p class="message-warning">Out of the box, <code>League\Csv</code> assumes that your are using a <code>UTF-8</code> encoded CSV without any <code>BOM</code> character.</p>
+<p class="message-warning">Out of the box, <code>Csv</code> assumes that your are using a <code>UTF-8</code> encoded CSV without any <code>BOM</code> character.</p>
 
 In the examples below we will be using an existing CSV as a starting point. The code may vary if you are creating the CSV from scratch.
 
@@ -103,7 +103,7 @@ On Windows, MS Excel, expects an UTF-8 encoded CSV with its corresponding `BOM` 
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $reader->setOutputBOM(Reader::BOM_UTF8);
@@ -114,13 +114,13 @@ echo $reader->__toString();
 
 ### MS Excel on MacOS
 
-On a MacOS system, MS Excel requires a CSV encoded in `UTF-16 LE` using the `tab` character as delimiter. Here's an example on how to meet those requirements using the `League\Csv` package.
+On a MacOS system, MS Excel requires a CSV encoded in `UTF-16 LE` using the `tab` character as delimiter. Here's an example on how to meet those requirements using the `Csv` package.
 
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\Writer;
+use Csv\Reader;
+use Csv\Writer;
 use lib\FilterTranscode;
 
 //the current CSV is UTF-8 encoded with a ";" delimiter

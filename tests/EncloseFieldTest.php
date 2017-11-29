@@ -3,13 +3,13 @@
 namespace LeagueTest\Csv;
 
 use InvalidArgumentException;
-use League\Csv\EncloseField;
-use League\Csv\Writer;
+use Csv\EncloseField;
+use Csv\Writer;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @group filter
- * @coversDefaultClass League\Csv\EncloseField
+ * @coversDefaultClass Csv\EncloseField
  */
 class EncloseFieldTest extends TestCase
 {

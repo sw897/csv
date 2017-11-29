@@ -6,7 +6,7 @@ redirect_from: /basic-usage/
 
 # Basic usage
 
-<p class="message-info"><strong>Tips:</strong> Even though you can use the following methods with the <code>League\Csv\Writer</code> object. It is recommended to do so with the <code>League\Csv\Reader</code> class to avoid losing the file cursor position and getting unexpected results when inserting new data.</p>
+<p class="message-info"><strong>Tips:</strong> Even though you can use the following methods with the <code>Csv\Writer</code> object. It is recommended to do so with the <code>Csv\Reader</code> class to avoid losing the file cursor position and getting unexpected results when inserting new data.</p>
 
 Once your CSV object is [instantiated](/8.0/instantiation) and [configured](/8.0/properties/), you can start interacting with the data using a number of methods available to you.
 
@@ -26,7 +26,7 @@ You can iterate over your CSV object to extract each CSV row using the `foreach`
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 foreach ($reader as $index => $row) {
@@ -36,7 +36,7 @@ foreach ($reader as $index => $row) {
 }
 ~~~
 
-<p class="message-notice">You can do more complex iterations <a href="/8.0/reading/">using the query methods</a> available on the <code>League\Csv\Reader</code> class only.</p>
+<p class="message-notice">You can do more complex iterations <a href="/8.0/reading/">using the query methods</a> available on the <code>Csv\Reader</code> class only.</p>
 
 ## Outputting the CSV
 
@@ -57,7 +57,7 @@ Use the `echo` construct on the instantiated object or use the `__toString` meth
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 echo $reader;
@@ -84,7 +84,7 @@ can even remove more headers.
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 header('Content-Type: text/csv; charset=UTF-8');
 header('Content-Disposition: attachment; filename="name-for-your-file.csv"');
@@ -99,7 +99,7 @@ die;
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 $reader->output("name-for-your-file.csv");
@@ -114,7 +114,7 @@ In some cases you can also use a Streaming Response for larger files.
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
 return new Response((string) $reader, 200, [

@@ -10,7 +10,7 @@ layout: homepage
 
 ~~~php
 <?php
-use League\Csv\Reader;
+use Csv\Reader;
 
 //load the CSV document from a file path
 $csv = Reader::createFromPath('/path/to/your/csv/file.csv', 'r');
@@ -29,7 +29,7 @@ echo $csv; //returns the CSV document as a string
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $header = ['first name', 'last name', 'email'];
 $records = [
@@ -56,8 +56,8 @@ echo $csv; //returns the CSV document as a string
 
 ~~~php
 <?php
-use League\Csv\Reader;
-use League\Csv\Statement;
+use Csv\Reader;
+use Csv\Statement;
 
 //load the CSV document from a stream
 $stream = fopen('/path/to/your/csv/file.csv', 'r');
@@ -84,8 +84,8 @@ Different converters objects ease transforming your CSV documents into other pop
 ~~~php
 <?php
 
-use League\Csv\Reader;
-use League\Csv\XMLConverter;
+use Csv\Reader;
+use Csv\XMLConverter;
 
 //load the CSV document from a SplFileObject
 $file = new SplFileObject('/path/to/your/csv/file.csv', 'r');
@@ -128,7 +128,7 @@ PHP stream filters can directly be used to ease manipulating CSV document
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $csv = Reader::createFromPath('/path/to/your/csv/file.csv', 'r');
 $csv->setHeaderOffset(0);

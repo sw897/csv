@@ -37,16 +37,16 @@ The `ByteSequence` interface provides the following constants :
 ~~~php
 <?php
 
-function League\Csv\bom_match(string $str): string
+function Csv\bom_match(string $str): string
 ~~~
 
-The `League\Csv\bom_match` function expects a string and returns the BOM sequence found at its start or an empty string otherwise.
+The `Csv\bom_match` function expects a string and returns the BOM sequence found at its start or an empty string otherwise.
 
 ~~~php
 <?php
 
-use League\Csv\ByteSequence;
-use function League\Csv\bom_match;
+use Csv\ByteSequence;
+use function Csv\bom_match;
 
 bom_match('hello world!'); //returns ''
 bom_match(ByteSequence::BOM_UTF8.'hello world!'); //returns '\xEF\xBB\xBF'
@@ -68,7 +68,7 @@ The CSV document current BOM character is detected using the `getInputBOM` metho
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $csv = Writer::createFromPath('/path/to/file.csv');
 $bom = $csv->getInputBOM();
@@ -91,7 +91,7 @@ public AbstractCsv::getOutputBOM(void): string
 ~~~php
 <?php
 
-use League\Csv\Reader;
+use Csv\Reader;
 
 $csv = Reader::createFromPath('/path/to/file.csv', 'r');
 $csv->setOutputBOM(Reader::BOM_UTF8);

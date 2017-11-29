@@ -5,7 +5,7 @@ title: Inserting new data into a CSV
 
 # Inserting Data
 
-To create or update a CSV use the following `League\Csv\Writer` methods.
+To create or update a CSV use the following `Csv\Writer` methods.
 
 <p class="message-warning">The class has been rewritten for scalability and speed. Some previous supported features have been removed. Please refer to the <a href="/upgrading/7.0/">upgrade section</a> to securely migrate from previous version to 7.0 .</p>
 
@@ -102,7 +102,7 @@ removes all registered formatters.
 ~~~php
 <?php
 
-use League\Csv\Writer;
+use Csv\Writer;
 
 $writer->addFormatter(function ($row) {
     return array_map('strtoupper', $row);
@@ -115,7 +115,7 @@ $writer->__toString();
 
 If you are relying on the **removed** null handling feature the library comes bundle with the following classes to help you migrate to the new version.
 
-- `League\Csv\Plugin\SkipNullValuesFormatter` to format `null` values
+- `Csv\Plugin\SkipNullValuesFormatter` to format `null` values
 
 Please refers to the <a href="/7.0/upgrading/7.0/">migration guide</a> for more information.
 
@@ -123,7 +123,7 @@ Please refers to the <a href="/7.0/upgrading/7.0/">migration guide</a> for more 
 
 <p class="message-notice">New to version 7.0</p>
 
-A validator is a `callable` which takes a `array` as its sole argument and returns a boolean. The validator **must** return `true` to validate the submitted row. Any other expression, including thruthy ones like `yes`, `1`,... will make the `insertOne` method throw an `League\Csv\Exception\InvalidRowException`.
+A validator is a `callable` which takes a `array` as its sole argument and returns a boolean. The validator **must** return `true` to validate the submitted row. Any other expression, including thruthy ones like `yes`, `1`,... will make the `insertOne` method throw an `Csv\Exception\InvalidRowException`.
 
 As with the new formatter capabilities, you can attach as many validators as you want to your data prior to its insertion. The row data is checked against your supplied validators **after being formatted**.
 
@@ -150,7 +150,7 @@ Removes all registered validators
 
 ## Validation failed
 
-If the validation failed a `League\Csv\Exception\InvalidRowException` is thrown by the `Writer` object.
+If the validation failed a `Csv\Exception\InvalidRowException` is thrown by the `Writer` object.
 This exception extends PHP's `InvalidArgumentException` by adding two public getter methods
 
 ### InvalidRowException::getName
@@ -166,8 +166,8 @@ returns the invalid data submitted to the validator
 ~~~php
 <?php
 
-use League\Csv\Writer;
-use League\Csv\Exception\InvalidRowException;
+use Csv\Writer;
+use Csv\Exception\InvalidRowException;
 
 $writer->addValidator(function (array $row) {
     return 10 == count($row);
@@ -182,8 +182,8 @@ try {
 
 If you are relying on the **removed features** null handling and the column consistency, the library comes bundle with the following classes to help you migrate to the new version.
 
-- `League\Csv\Plugin\ForbiddenNullValuesValidator` to validate the absence of the `null` value;
-- `League\Csv\Plugin\ColumnConsistencyValidator` to validate the CSV column consistency;
+- `Csv\Plugin\ForbiddenNullValuesValidator` to validate the absence of the `null` value;
+- `Csv\Plugin\ColumnConsistencyValidator` to validate the CSV column consistency;
 
 Please refers to the <a href="/upgrading/7.0/">migration guide</a> for more information.
 

@@ -50,7 +50,7 @@ public CharsetConverter::convert(iterable $records): iterable
 ~~~php
 <?php
 
-use League\Csv\CharsetConverter;
+use Csv\CharsetConverter;
 
 $csv = new SplFileObject('/path/to/french.csv', 'r');
 $csv->setFlags(SplFileObject::READ_CSV | SplFileObject::SKIP_EMPTY);
@@ -75,8 +75,8 @@ Using the `CharsetConverter::__invoke` method, you can register a `CharsetConver
 ~~~php
 <?php
 
-use League\Csv\CharsetConverter;
-use League\Csv\Writer;
+use Csv\CharsetConverter;
+use Csv\Writer;
 
 $encoder = (new CharsetConverter())
     ->inputEncoding('utf-8')
@@ -113,8 +113,8 @@ The `CharsetConverter::addTo` static method:
 ~~~php
 <?php
 
-use League\Csv\CharsetConverter;
-use League\Csv\Writer;
+use Csv\CharsetConverter;
+use Csv\Writer;
 
 $writer = Writer::createFromPath('/path/to/your/csv/file.csv');
 CharsetConverter::addTo($writer, 'utf8', 'iso-8859-15');
@@ -125,7 +125,7 @@ $writer->insertOne(["foo", "bébé", "jouet"]);
 
 ### Usage with PHP stream resources
 
-To use this stream filter outside `League\Csv` objects you need to:
+To use this stream filter outside `Csv` objects you need to:
 
 - register the stream filter using `CharsetConverter::register` method.
 - use `CharsetConverter::getFiltername` with one of PHP's attaching stream filter functions with the correct arguments as shown below:
@@ -133,7 +133,7 @@ To use this stream filter outside `League\Csv` objects you need to:
 ~~~php
 <?php
 
-use League\Csv\CharsetConverter;
+use Csv\CharsetConverter;
 
 CharsetConverter::register();
 

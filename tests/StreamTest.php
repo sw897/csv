@@ -2,15 +2,15 @@
 
 namespace LeagueTest\Csv;
 
-use League\Csv\Exception;
-use League\Csv\Stream;
+use Csv\Exception;
+use Csv\Stream;
 use PHPUnit\Framework\TestCase;
 use SplFileObject;
 use TypeError;
 
 /**
  * @group csv
- * @coversDefaultClass League\Csv\Stream
+ * @coversDefaultClass Csv\Stream
  */
 class StreamTest extends TestCase
 {
