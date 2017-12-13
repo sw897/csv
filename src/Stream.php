@@ -393,7 +393,7 @@ class Stream implements SeekableIterator
     protected function getCurrentRecord()
     {
         do {
-            $ret = fgetcsv($this->stream, 0, $this->delimiter, $this->enclosure, $this->escape);
+            $ret = fgetcsv_reg($this->stream, 0, $this->delimiter, $this->enclosure, $this->escape);
         } while ($this->flags & SplFileObject::SKIP_EMPTY && $ret !== false && $ret[0] === null);
 
         return $ret;
